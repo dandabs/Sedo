@@ -1,12 +1,5 @@
 var admin = require('firebase-admin');
-
 var serviceAccount = require("../laatikkonsedo-firebase-adminsdk-4rtn9-2bb94041a9.json");
-
-/*admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://laatikkonsedo.firebaseio.com"
-});*/
-
 var db = admin.firestore();
 
 exports.run = (client, message, args) => {

@@ -1,12 +1,25 @@
+var admin = require('firebase-admin');
+var serviceAccount = require("../laatikkonsedo-firebase-adminsdk-4rtn9-2bb94041a9.json");
+var db = admin.firestore();
+
 module.exports = (client, message) => {
+
+  let ref = db.collection('instillinger').doc('bot');
+
+let getDoc = ref.get()
+.then(doc => {
+if (doc.exists) {
+
+  const prefix = doc.data().prefix;
+
     // Ignore all bots
     if (message.author.bot) return;
   
     // Ignore messages not starting with the prefix (in config.json)
-    if (message.content.indexOf(client.config.prefix) !== 0) return;
+    if (message.content.indexOf(prefix) !== 0) return;
   
     // Our standard argument/command name definition.
-    const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
   
     // Grab the command data from the client.commands Enmap
@@ -17,4 +30,10 @@ module.exports = (client, message) => {
   
     // Run the command
     cmd.run(client, message, args);
+
+}
+})
+.catch(err => {
+console.log('Error getting document', err);
+});
   };
