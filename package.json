@@ -4,9 +4,12 @@
   "description": "A custom-built ROBLOX-Discord verification bot, written for Helsinki Cruises.",
   "main": "sedö.js",
   "dependencies": {
+    "axios": "^0.16.2",
     "discord.js": "^11.6.0",
     "enmap": "^5.2.4",
-    "firebase-admin": "^8.10.0"
+    "firebase-admin": "^8.10.0",
+    "he": "^1.2.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {},
   "scripts": {

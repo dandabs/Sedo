@@ -3,7 +3,6 @@ const Enmap = require("enmap");
 const fs = require("fs");
 
 const client = new Discord.Client();
-const config = require("./config.json");
 
 var admin = require('firebase-admin');
 var serviceAccount = require("./laatikkonsedo-firebase-adminsdk-4rtn9-2bb94041a9.json");
@@ -12,9 +11,6 @@ admin.initializeApp({
     databaseURL: "https://laatikkonsedo.firebaseio.com"
   });
 var db = admin.firestore();
-
-// ATTACH THE CONFIGURATION TO THE CLIENT OBJECT SO ITS ACCESSIBLE EVERYWHERE!!!! DONT FORGET THIS DAN GRRRR
-client.config = config;
 
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
