@@ -140,15 +140,15 @@ app.post('/verify', (req, res) => {
 
                     if (robloxdesc.includes(verifcode)) {
 
-                        var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;;
+                        var ip = req.header('x-forwarded-for')[0] || req.connection.remoteAddress;
 
                         res.status(200).send();
 
                         ref1.delete();
 
                         const ref3 = db.collection('users');
-                        console.log('ip is ' + ip)
-                                                axios.get("https://www.iplocate.io/api/lookup/" + ip)
+                        console.log('ip is ' + req.ip);
+                                                axios.get("https://www.iplocate.io/api/lookup/" + req.ip)
                                                 
                         .then(response => {
 

@@ -2,9 +2,20 @@ var admin = require('firebase-admin');
 var serviceAccount = require("../helsinkicruises-firebase-adminsdk-35i3k-deb8a8b7ab.json");
 var db = admin.firestore();
 
+const Discord = require('discord.js');
+
 exports.run = (client, message, args) => {
 
     if (!message.member.hasPermission('ADMINISTRATOR')) {
+        message.channel.send(new Discord.RichEmbed()
+        .setTitle("Error!")
+        .setColor("#ff0000")
+        .setDescription("You aren't an HC Discord administrator, so you have no permission to run this command.")).then(msg => {
+
+            msg.delete(5000);
+            message.delete(5000)
+        
+          })
         return;
     }
 
