@@ -3,7 +3,7 @@ const axios = require('axios');
 const Discord = require('discord.js');
 
 var admin = require('firebase-admin');
-var serviceAccount = require("../laatikkonsedo-firebase-adminsdk-4rtn9-2bb94041a9.json");
+var serviceAccount = require("../helsinkicruises-firebase-adminsdk-35i3k-deb8a8b7ab.json");
 var db = admin.firestore();
 
 var util = require("util"),
@@ -71,6 +71,8 @@ exports.run = (client, message, args) => {
 
                                                     const robloxbadges = response.data.data.length;
 
+                                                    
+
                                                     var request = require("request");
 
                                                     request(
@@ -90,7 +92,15 @@ exports.run = (client, message, args) => {
                                                                 },
                                                                 function (error, response, body) {
 
-                                                                    const robloxdesc = he.decode(decodeURI(body.split('<span class="profile-about-content-text linkify" ng-non-bindable>')[1].split('</span>')[0]));
+                                                                    var robloxdesc = "";
+
+                                                                    const temp1 = body.split('<span class="profile-about-content-text linkify" ng-non-bindable>')[1];
+
+                                                                    if (!temp1) { robloxdesc = "No descripion." } else {
+
+                                                                        robloxdesc = he.decode(decodeURI(temp1.split('</span>')[0]));
+
+                                                                    }
                                                                     const robloxdate = body.split('Join Date<p class=text-lead>')[1].split('<')[0];
 
                                                                     axios.get("https://groups.roblox.com/v2/users/" + robloxid + "/groups/roles")

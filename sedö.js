@@ -2,15 +2,26 @@ const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
 
+const express = require('express');
+const app = express();
+
 const client = new Discord.Client();
 
 var admin = require('firebase-admin');
-var serviceAccount = require("./laatikkonsedo-firebase-adminsdk-4rtn9-2bb94041a9.json");
+var serviceAccount = require("./helsinkicruises-firebase-adminsdk-35i3k-deb8a8b7ab.json");
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://laatikkonsedo.firebaseio.com"
+    databaseURL: "https://helsinkicruises.firebaseio.com"
   });
 var db = admin.firestore();
+
+app.post('/verify/:id', (req, res) => {
+
+  client.guilds.get('697577297326374974').members.get(req.params.id).addRole(client.guilds.get('697577297326374974').roles.get('698573570590376056'));
+  client.guilds.get('697577297326374974').members.get(req.params.id).removeRole(client.guilds.get('697577297326374974').roles.get('698573605868404747'));
+  client.guilds.get('697577297326374974').members.get(req.params.id).sendMessage(':wave: Thanks for verifying, and welcome to Helsinki Cruises.');
+
+});
 
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
@@ -45,3 +56,7 @@ if (doc.exists) {
 .catch(err => {
 console.log('Error getting document', err);
 });
+
+app.listen(112, () =>
+  console.log('Ready to serve the world wide web on port 112.'),
+);
