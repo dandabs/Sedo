@@ -10,6 +10,8 @@ const app = express();
 
 const client = new Discord.Client();
 
+const axios = require('axios');
+
 var admin = require('firebase-admin');
 var serviceAccount = require("./helsinkicruises-firebase-adminsdk-35i3k-deb8a8b7ab.json");
 admin.initializeApp({
@@ -20,18 +22,43 @@ var db = admin.firestore();
 
 app.post('/verify/:id', (req, res) => {
 
-  const guild = '529631776625131520';
-  const testguild = '697577297326374974';
+  let ref = db.collection('users').doc(req.params.id);
 
-  client.guilds.get(guild).members.get(req.params.id).sendMessage(':wave: Thanks for verifying, and welcome to Helsinki Cruises.');
+let getDoc = ref.get()
+.then(doc => {
+if (doc.exists) {
 
-  client.guilds.get(guild).members.get(req.params.id).addRole(client.guilds.get(guild).roles.get('535134591087018001'));
-  client.guilds.get(guild).members.get(req.params.id).removeRole(client.guilds.get(guild).roles.get('535134616604901378'));
+  axios.get("https://api.roblox.com/users/" + doc.data().roblox)
+                                          
+  .then(response => {
 
-  client.guilds.get(testguild).members.get(req.params.id).addRole(client.guilds.get(testguild).roles.get('698573570590376056'));
-  client.guilds.get(testguild).members.get(req.params.id).removeRole(client.guilds.get(testguild).roles.get('698573605868404747'));
+    const guild = '529631776625131520';
+    const testguild = '697577297326374974';
+  
+    client.guilds.get(guild).members.get(req.params.id).sendMessage(':wave: Thanks for verifying, and welcome to Helsinki Cruises.');
+  
+    client.guilds.get(guild).members.get(req.params.id).setNickname(response.data.Username);
+  
+    client.guilds.get(guild).members.get(req.params.id).addRole(client.guilds.get(guild).roles.get('535134591087018001'));
+    client.guilds.get(guild).members.get(req.params.id).removeRole(client.guilds.get(guild).roles.get('535134616604901378'));
+  
+    //client.guilds.get(testguild).members.get(req.params.id).addRole(client.guilds.get(testguild).roles.get('698573570590376056'));
+    //client.guilds.get(testguild).members.get(req.params.id).removeRole(client.guilds.get(testguild).roles.get('698573605868404747'));
+  
+    res.send("yeah cool ok");
 
-  res.send("yeah cool ok");
+  }
+  ).catch(err => {
+
+    console.log(err);
+
+  })
+
+}
+})
+.catch(err => {
+console.log('Error getting document', err);
+});
 
 });
 

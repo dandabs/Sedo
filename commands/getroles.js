@@ -71,7 +71,7 @@ if (doc.exists) {
 
               for (rank in response2.data.roles) {
 
-                console.log(role.name + " : " + response2.data.roles[rank]);
+                //console.log(role.name + " : " + response2.data.roles[rank]);
 
                 if (role.name == response2.data.roles[rank].name) {
 

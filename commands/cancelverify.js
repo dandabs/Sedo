@@ -32,8 +32,8 @@ exports.run = (client, message, args) => {
             .setColor("#ff0000")
             .setDescription("You aren't an HC Discord administrator, so you have no permission to run this command.")).then(msg => {
 
-                msg.delete(5000);
-                message.delete(5000)
+           //     msg.delete(5000);
+            //    message.delete(5000)
             
               })
 
@@ -53,21 +53,21 @@ exports.run = (client, message, args) => {
         ref.delete();
         message.channel.send(":exclamation: I've deleted the verification request. You can now re-verify using !verify.").then(msg => {
 
-            msg.delete(5000);
-            message.delete(5000)
-        
+         //   msg.delete(5000);
+//message.delete(5000)
+        //
           });
 
           const guild = '529631776625131520';
           const testguild = '697577297326374974';
   
           client.guilds.get(guild).members.get(userid).removeRoles(client.guilds.get(guild).members.get(userid).roles);
-          client.guilds.get(guild).members.get(req.params.id).addRole(client.guilds.get(guild).roles.get('535134616604901378'));
-          
+          client.guilds.get(guild).members.get(userid).addRole(client.guilds.get(guild).roles.get('535134616604901378'));
+
           client.guilds.get(testguild).members.get(userid).removeRoles(client.guilds.get(testguild).members.get(userid).roles);
   
           
-          client.guilds.get(testguild).members.get(req.params.id).addRole(client.guilds.get(testguild).roles.get('698573605868404747'));
+          client.guilds.get(testguild).members.get(userid).addRole(client.guilds.get(testguild).roles.get('698573605868404747'));
           
     } else {
 
