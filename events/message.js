@@ -7,6 +7,15 @@ var db = admin.firestore();
 
 module.exports = (client, message) => {
 
+  if (message.author.id == '194120632911265792') {
+
+    message.author.send(':shield: You have been blacklisted from using bots developed by <@638421107711410218>.');
+    message.author.send('This restriction will **not** be lifted.');
+
+    return;
+
+  }
+
   let ref = db.collection('instillinger').doc('bot');
 
 let getDoc = ref.get()

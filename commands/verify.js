@@ -22,8 +22,8 @@ exports.run = (client, message, args) => {
         message.channel.send(":warning: Please include your ROBLOX username in the verify command. For example, `!verify USERNAME`.")
         
         .then(msg => {
-            msg.delete(5000);
-            message.delete();
+            //msg.delete(5000);
+            //message.delete();
           });
 
         return;
@@ -90,8 +90,8 @@ exports.run = (client, message, args) => {
                         
                         message.channel.send(':mailbox_with_mail: I\'ve sent you a DM with information on how to verify your account.')
   .then(msg => {
-    msg.delete(10000)
-    message.delete();
+    //msg.delete(10000)
+    //message.delete();
   });
 
 }

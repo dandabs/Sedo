@@ -60,13 +60,7 @@ exports.run = (client, message, args) => {
 
     if (args[0] == "help") {
 
-        const ref = db.collection('instillinger');
-
-        let setRef = ref.doc('bot').update({
-            username: args.join(' ').split(args[0])[1]
-          }, {merge: true});
-
-        client.user.setUsername(args.join(' ').split(args[0])[1]);
+        
 
     } else
 
@@ -82,7 +76,7 @@ exports.run = (client, message, args) => {
         member.removeRoles(member.roles).then(() => {
 
           member.addRole(client.guilds.get(guild).roles.get('535134616604901378'));
-          member.addRole(client.guilds.get(testguild).roles.get('698573605868404747'));
+          //member.addRole(client.guilds.get(testguild).roles.get('698573605868404747'));
 
         })
 

@@ -32,8 +32,8 @@ exports.run = (client, message, args) => {
             .setColor("#ff0000")
             .setDescription("You aren't an HC Discord administrator, so you have no permission to run this command.")).then(msg => {
 
-                msg.delete(5000);
-                message.delete(5000)
+                //msg.delete(5000);
+                //message.delete(5000)
             
               })
 
@@ -100,8 +100,8 @@ if (doc.exists) {
 
       message.channel.send(":thumbsup: I've assigned the correct role to you from the Helsinki Cruises ROBLOX group.").then(msg => {
   
-        msg.delete(5000);
-        message.delete(5000)
+        //msg.delete(5000);
+       // message.delete(5000)
     
       })
 
