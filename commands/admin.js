@@ -68,6 +68,26 @@ exports.run = (client, message, args) => {
 
         client.user.setUsername(args.join(' ').split(args[0])[1]);
 
-    } 
+    } else
+
+    if (args[0] == "unvall") {
+
+      const guild = '529631776625131520';
+      const testguild = '697577297326374974';
+
+      message.channel.guild.members.forEach(member => {
+
+        if (member.user.bot) return;
+
+        member.removeRoles(member.roles).then(() => {
+
+          member.addRole(client.guilds.get(guild).roles.get('535134616604901378'));
+          member.addRole(client.guilds.get(testguild).roles.get('698573605868404747'));
+
+        })
+
+      })
+
+  } 
 
 }

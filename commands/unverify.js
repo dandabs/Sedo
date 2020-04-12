@@ -59,7 +59,8 @@ exports.run = (client, message, args) => {
         const guild = '529631776625131520';
         const testguild = '697577297326374974';
 
-        client.getUser(userid).removeRoles(client.getUser(userid).roles);
+        client.guilds.get(guild).members.get(userid).member.removeRoles(client.guilds.get(guild).members.get(userid).roles);
+        client.guilds.get(testguild).members.get(userid).member.removeRoles(client.guilds.get(testguild).members.get(userid).roles);
 
         client.guilds.get(guild).members.get(req.params.id).addRole(client.guilds.get(guild).roles.get('535134616604901378'));
         client.guilds.get(testguild).members.get(req.params.id).addRole(client.guilds.get(testguild).roles.get('698573605868404747'));
