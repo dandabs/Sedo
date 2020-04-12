@@ -41,6 +41,30 @@ exports.run = (client, message, args) => {
 
           client.user.setAvatar(client.guilds.get("529631776625131520").iconURL);
 
+    } else
+
+    if (args[0] == "name") {
+
+        const ref = db.collection('instillinger');
+
+        let setRef = ref.doc('bot').update({
+            username: args.join(' ').split(args[0])[1]
+          }, {merge: true});
+
+        client.user.setUsername(args.join(' ').split(args[0])[1]);
+
+    } else
+
+    if (args[0] == "help") {
+
+        const ref = db.collection('instillinger');
+
+        let setRef = ref.doc('bot').update({
+            username: args.join(' ').split(args[0])[1]
+          }, {merge: true});
+
+        client.user.setUsername(args.join(' ').split(args[0])[1]);
+
     } 
 
 }
