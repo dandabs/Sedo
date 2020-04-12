@@ -23,13 +23,15 @@ app.post('/verify/:id', (req, res) => {
   const guild = '529631776625131520';
   const testguild = '697577297326374974';
 
+  client.guilds.get(guild).members.get(req.params.id).sendMessage(':wave: Thanks for verifying, and welcome to Helsinki Cruises.');
+
   client.guilds.get(guild).members.get(req.params.id).addRole(client.guilds.get(guild).roles.get('535134591087018001'));
   client.guilds.get(guild).members.get(req.params.id).removeRole(client.guilds.get(guild).roles.get('535134616604901378'));
 
   client.guilds.get(testguild).members.get(req.params.id).addRole(client.guilds.get(testguild).roles.get('698573570590376056'));
   client.guilds.get(testguild).members.get(req.params.id).removeRole(client.guilds.get(testguild).roles.get('698573605868404747'));
 
-  client.guilds.get(guild).members.get(req.params.id).sendMessage(':wave: Thanks for verifying, and welcome to Helsinki Cruises.');
+  res.send("yeah cool ok");
 
 });
 

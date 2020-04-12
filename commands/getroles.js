@@ -86,13 +86,6 @@ if (doc.exists) {
                 }
 
               }
-
-              message.channel.send(":thumbsup: I've assigned the correct role to you from the Helsinki Cruises ROBLOX group.").then(msg => {
-  
-                  msg.delete(5000);
-                  message.delete(5000)
-              
-                })
               
             }).catch(error => {
               console.log(error);
@@ -104,6 +97,13 @@ if (doc.exists) {
         }
 
       }
+
+      message.channel.send(":thumbsup: I've assigned the correct role to you from the Helsinki Cruises ROBLOX group.").then(msg => {
+  
+        msg.delete(5000);
+        message.delete(5000)
+    
+      })
 
     }).catch(error => {
         console.log(error);

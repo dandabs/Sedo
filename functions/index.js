@@ -137,11 +137,19 @@ app.post('/verify', (req, res) => {
 
                     //console.log(body);
 
-                    const robloxdesc = he.decode(decodeURI(body.split('<span class="profile-about-content-text linkify" ng-non-bindable>')[1].split('</span>')[0]));
+                    const desc1 = body.split('<span class="profile-about-content-text linkify" ng-non-bindable>')[1];
+                    const stat1 = body.split('data-statustext="')[1];
+
+                    var robloxdesc = "";
+                    var robloxstat = "";
+
+                    if (desc1) robloxdesc = he.decode(decodeURI(desc1.split('</span>')[0]));
+                    if (stat1) robloxstat = he.decode(decodeURI(stat1.split('"')[0]));
 
                     console.log(robloxdesc);
+                    console.log(robloxstat);
 
-                    if (robloxdesc.includes(verifcode)) {
+                    if (robloxdesc.includes(verifcode) || body.includes(verifcode)) {
 
                         var ip = req.header('x-forwarded-for')[0] || req.connection.remoteAddress;
 
