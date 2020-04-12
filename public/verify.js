@@ -1,3 +1,5 @@
+Sentry.init({ dsn: 'https://8aa2654fc3e54040918cd44ee0fba683@o376518.ingest.sentry.io/5197417' });
+
 const button = document.getElementById('verifybtn');
 button.addEventListener('click', function(e) {
 

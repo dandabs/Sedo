@@ -1,3 +1,6 @@
+const Sentry = require('@sentry/node');
+Sentry.init({ dsn: 'https://0f82623db7b34de9802f3c04d44e40da@o376518.ingest.sentry.io/5197416' });
+
 var mustacheExpress = require('mustache-express');
 const functions = require('firebase-functions');
 const express = require('express');
