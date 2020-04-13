@@ -18,8 +18,8 @@ exports.run = (client, message, args) => {
         .setColor("#ff0000")
         .setDescription("You aren't an HC Discord administrator, so you have no permission to run this command.")).then(msg => {
 
-            msg.delete(5000);
-            message.delete(5000)
+           // msg.delete(5000);
+           // message.delete(5000)
         
           })
         return;
@@ -65,8 +65,8 @@ exports.run = (client, message, args) => {
 
       message.channel.send(":books: I've sent some help commands to your DMs.").then(msg => {
 
-        msg.delete(5000);
-        message.delete(5000);
+        //msg.delete(5000);
+        //message.delete(5000);
 
       });
 
@@ -80,6 +80,7 @@ exports.run = (client, message, args) => {
         .addField('!admin name <name>', 'Updates the bot\'s username to the supplied text. [ONLY 2 CHANGES PER HOUR].')
         .addField('!admin verify <@mention> <roblox>', 'Force verifies the mentioned user with the supplied ROBLOX username.')
         .addField('!admin unvall', 'Unverifies everyone without admin permissions in the Helsinki Cruises Discord.')
+        .addField('!admin say <message>', 'Repeats the given message in the same channel as the command was sent, then deletes the sender\'s message.')
         .addBlankField()
         .addField('!cancelverify <@mention>', 'Cancel the mentioned user\'s request to verify themselves.')
         .addField('!getroles <@mention>', 'Give the mentioned user the role which matches your rank on the HC ROBLOX group.')
