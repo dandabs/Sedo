@@ -93,7 +93,7 @@ exports.run = (client, message, args) => {
 
         message.delete();
 
-        message.channel.send(args.join(' ').split('say ')[0]);
+        message.channel.send(args.join(' ').split(args[0])[1]);
 
     } else
 
