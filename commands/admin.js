@@ -89,6 +89,14 @@ exports.run = (client, message, args) => {
 
     } else
 
+    if (args[0] == "say") {
+
+        message.delete(5000);
+
+        message.channel.send(args.join(' ').split('say ')[0]);
+
+    } else
+
     if (args[0] == "verify") {
 
         if (!args[2]) {
