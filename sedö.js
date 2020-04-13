@@ -22,6 +22,8 @@ var db = admin.firestore();
 
 app.post('/getroles/:id', (req, res) => {
 
+  res.send('');
+
   var userid = req.params.id;
 
   let ref = db.collection('users').doc(userid);
