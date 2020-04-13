@@ -128,7 +128,20 @@ exports.run = (client, message, args) => {
            
              message.mentions.members.first().addRole(client.guilds.get(guild).roles.get('535134591087018001'));
              message.mentions.members.first().removeRole(client.guilds.get(guild).roles.get('535134616604901378'));
-           
+             
+             let ref = db.collection('instillinger').doc('bot');
+
+let getDoc = ref.get()
+.then(doc => {
+if (doc.exists) {
+
+  axios.post("http://" + doc.data().api + ":112/getroles/" + message.mentions.members.first().id);
+}
+})
+.catch(err => {
+console.log('Error getting document', err);
+});
+             
              message.mentions.members.first().addRole(client.guilds.get(testguild).roles.get('698573570590376056'));
              message.mentions.members.first().removeRole(client.guilds.get(testguild).roles.get('698573605868404747'));
 

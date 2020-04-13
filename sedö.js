@@ -20,6 +20,75 @@ admin.initializeApp({
   });
 var db = admin.firestore();
 
+app.post('/getroles/:id', (req, res) => {
+
+  var userid = req.params.id;
+
+  let ref = db.collection('users').doc(userid);
+
+let getDoc = ref.get()
+.then(doc => {
+if (doc.exists) {
+
+  axios.get("https://groups.roblox.com/v2/users/" + doc.data().roblox + "/groups/roles")
+  .then(response => {
+
+    for (section in response.data.data) {
+
+      if (response.data.data[section].group.id == 4430859) {
+
+        //console.log(response.data.data[section]);
+
+        const user = client.guilds.get('529631776625131520').members.get(userid);
+        
+        user.addRole(client.guilds.get('529631776625131520').roles.find("name", response.data.data[section].role.name));
+
+        user.roles.forEach(role => {
+
+          axios.get("https://groups.roblox.com/v1/groups/4430859/roles")
+          .then(response2 => {
+
+            for (rank in response2.data.roles) {
+
+              //console.log(role.name + " : " + response2.data.roles[rank]);
+
+              if (role.name == response2.data.roles[rank].name) {
+
+                if (role.name == response.data.data[section].role.name) {
+
+                  console.log(role.name);
+
+                } else user.removeRole(role.id);
+
+                
+
+              }
+
+            }
+            
+          }).catch(error => {
+            console.log(error);
+        });
+
+          
+        })
+        
+      }
+
+    }
+
+  }).catch(error => {
+      console.log(error);
+  });
+
+}
+})
+.catch(err => {
+console.log('Error getting document', err);
+});
+
+})
+
 app.post('/verify/:id', (req, res) => {
 
   let ref = db.collection('users').doc(req.params.id);
@@ -41,6 +110,19 @@ if (doc.exists) {
   
     client.guilds.get(guild).members.get(req.params.id).addRole(client.guilds.get(guild).roles.get('535134591087018001'));
     client.guilds.get(guild).members.get(req.params.id).removeRole(client.guilds.get(guild).roles.get('535134616604901378'));
+
+    let ref = db.collection('instillinger').doc('bot');
+
+    let getDoc = ref.get()
+    .then(doc => {
+    if (doc.exists) {
+    
+      axios.post("http://" + doc.data().api + ":112/getroles/" + client.guilds.get(guild).members.get(req.params.id).id);
+    }
+    })
+    .catch(err => {
+    console.log('Error getting document', err);
+    });
   
     //client.guilds.get(testguild).members.get(req.params.id).addRole(client.guilds.get(testguild).roles.get('698573570590376056'));
     //client.guilds.get(testguild).members.get(req.params.id).removeRole(client.guilds.get(testguild).roles.get('698573605868404747'));
