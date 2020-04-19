@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
 
     }
 
-    const discordid = "";
+    var discordid = "";
 
     if (!message.mentions.members.first()) discordid = args[0];
     if (message.mentions.members.first()) discordid = message.mentions.members.first().id;
