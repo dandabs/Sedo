@@ -56,7 +56,7 @@ exports.run = (client, message, args) => {
                         message.channel.send(new Discord.RichEmbed()
                         .setTitle("Error!")
                         .setColor("#ff0000")
-                        .setDescription("You're already in the process of verifying the account `" + doc2.data().username + "`. To cancel the verification process, use !cancelverify."));
+                        .setDescription("You're already in the process of verifying the account `" + doc2.data().username + "`. Check your DMs from me for your verification link, or to cancel the verification process, use !cancelverify."));
         
                     } else {
 
