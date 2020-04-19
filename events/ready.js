@@ -22,4 +22,11 @@ module.exports = (client) => {
   });
 
     console.log(`Ready to serve for a total of ${client.guilds.get("529631776625131520").members.size} amazing HC users.`);
+
+    setInterval(() => {
+
+      client.guilds.get('529631776625131520').channels.get('701386093475397724').setName("Verified Members: " + client.guilds.get('529631776625131520').roles.get('535134591087018001').members.size);
+
+  }, 10000);
+
 }
