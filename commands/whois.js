@@ -137,7 +137,7 @@ exports.run = (client, message, args) => {
                                                                                 .setThumbnail(imageUrl)
                                                                                 .addField('Roblox ID', robloxid, true)
                                                                                 .addField('Roblox Join Date', robloxdate.split('/')[1] + '/' + robloxdate.split('/')[0] + '/' + robloxdate.split('/')[2], true)
-                                                                                .addField('Discord Join Date', client.users.get(discordid).createdAt.getDate() + "/" + client.users.get(discordid).createdAt.getMonth() + "/" + client.users.get(discordid).user.createdAt.getFullYear(), true)
+                                                                                .addField('Discord Join Date', message.channel.guild.users.get(discordid).createdAt.getDate() + "/" + client.users.get(discordid).createdAt.getMonth() + "/" + client.users.get(discordid).createdAt.getFullYear(), true)
                                                                                 .addField('Friends', robloxfriends, true)
                                                                                 .addField('Badges', robloxbadges, true)
                                                                                 .addField('Groups', robloxgroups, true)
