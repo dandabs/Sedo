@@ -104,6 +104,11 @@ exports.run = (client, message, args) => {
 
         } else {
 
+          const discordid = "";
+
+          if (!message.mentions.members.first()) discordid = args[1];
+          if (message.mentions.members.first()) discordid = message.mentions.members.first().id;
+
           axios.get("https://api.roblox.com/users/get-by-username?username=" + args[2])
           .then(response => {
 
@@ -120,7 +125,7 @@ exports.run = (client, message, args) => {
 
            const ref3 = db.collection('users');
  
-           let setRef3 = ref3.doc(message.mentions.members.first().id).set({
+           let setRef3 = ref3.doc(discordid).set({
                roblox: response.data.Id + "",
                timestamp: Math.floor(new Date() / 1000),
                city: "",
@@ -130,13 +135,13 @@ exports.run = (client, message, args) => {
              const guild = '529631776625131520';
              const testguild = '697577297326374974';
            
-             message.mentions.members.first().sendMessage(':wave: Thanks for verifying, and welcome to Helsinki Cruises.');
+             client.users.get(discordid).sendMessage(':wave: Thanks for verifying, and welcome to Helsinki Cruises.');
              message.channel.send(':shield: ' + response.data.Username + ' is now verified.');
 
-             message.mentions.members.first().setNickname(response.data.Username);
+             client.guilds.get('529631776625131520').members.get(discordid).setNickname(response.data.Username);
            
-             message.mentions.members.first().addRole(client.guilds.get(guild).roles.get('535134591087018001'));
-             message.mentions.members.first().removeRole(client.guilds.get(guild).roles.get('535134616604901378'));
+             client.guilds.get('529631776625131520').members.get(discordid).addRole(client.guilds.get(guild).roles.get('535134591087018001'));
+             client.guilds.get('529631776625131520').members.get(discordid).removeRole(client.guilds.get(guild).roles.get('535134616604901378'));
              
              let ref = db.collection('instillinger').doc('bot');
 
@@ -144,15 +149,15 @@ let getDoc = ref.get()
 .then(doc => {
 if (doc.exists) {
 
-  axios.post("http://" + doc.data().api + ":112/getroles/" + message.mentions.members.first().id);
+  axios.post("http://" + doc.data().api + ":112/getroles/" + discordid);
 }
 })
 .catch(err => {
 console.log('Error getting document', err);
 });
              
-             message.mentions.members.first().addRole(client.guilds.get(testguild).roles.get('698573570590376056'));
-             message.mentions.members.first().removeRole(client.guilds.get(testguild).roles.get('698573605868404747'));
+client.guilds.get('529631776625131520').members.get(discordid).addRole(client.guilds.get(testguild).roles.get('698573570590376056'));
+client.guilds.get('529631776625131520').members.get(discordid).removeRole(client.guilds.get(testguild).roles.get('698573605868404747'));
 
             
 
@@ -170,9 +175,9 @@ console.log('Error getting document', err);
 
         }
 
-    } else
+    }
 
-    if (args[0] == "unvall") {
+    /*if (args[0] == "unvall") {
 
       const guild = '529631776625131520';
       const testguild = '697577297326374974';
@@ -190,6 +195,6 @@ console.log('Error getting document', err);
 
       })
 
-  } 
+  }*/
 
 }
