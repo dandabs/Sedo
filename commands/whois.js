@@ -16,7 +16,7 @@ var he = require('he');
 
 exports.run = (client, message, args) => {
 
-    if (!message.mentions.members.first()) {
+    if (!message.mentions.members.first() || !args[1]) {
 
         message.channel.send(new Discord.RichEmbed()
         .setTitle("Error!")
@@ -27,9 +27,14 @@ exports.run = (client, message, args) => {
 
     }
 
-    message.channel.send(":hourglass_flowing_sand: Fetching info for <@" + message.mentions.members.first().id + ">").then((msg => {
+    const discordid = "";
 
-        let ref = db.collection('users').doc(message.mentions.members.first().id);
+    if (!message.mentions.members.first()) discordid = args[1];
+    if (message.mentions.members.first()) discordid = message.mentions.members.first().id;
+
+    message.channel.send(":hourglass_flowing_sand: Fetching info for <@" + discordid + ">").then((msg => {
+
+        let ref = db.collection('users').doc(discordid);
 
         let getDoc = ref.get()
             .then(doc => {
@@ -132,7 +137,7 @@ exports.run = (client, message, args) => {
                                                                                 .setThumbnail(imageUrl)
                                                                                 .addField('Roblox ID', robloxid, true)
                                                                                 .addField('Roblox Join Date', robloxdate.split('/')[1] + '/' + robloxdate.split('/')[0] + '/' + robloxdate.split('/')[2], true)
-                                                                                .addField('Discord Join Date', message.mentions.members.first().user.createdAt.getDate() + "/" + message.mentions.members.first().user.createdAt.getMonth() + "/" + message.mentions.members.first().user.createdAt.getFullYear(), true)
+                                                                                .addField('Discord Join Date', client.users.get(discordid).createdAt.getDate() + "/" + client.users.get(discordid).createdAt.getMonth() + "/" + client.users.get(discordid).user.createdAt.getFullYear(), true)
                                                                                 .addField('Friends', robloxfriends, true)
                                                                                 .addField('Badges', robloxbadges, true)
                                                                                 .addField('Groups', robloxgroups, true)
