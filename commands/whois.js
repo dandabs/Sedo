@@ -156,7 +156,7 @@ exports.run = (client, message, args) => {
                                                                             message.channel.send(new Discord.RichEmbed()
                                                                             .setTitle("Error!")
                                                                             .setColor("#ff0000")
-                                                                            .setDescription("An error has occurred. Are you sure the user exists and is verified?"));
+                                                                            .setDescription("An error has occurred. Are you sure the user exists and is verified? 6"));
                                                                         });
 
                                                                     }
@@ -171,7 +171,7 @@ exports.run = (client, message, args) => {
                                                     message.channel.send(new Discord.RichEmbed()
                                                     .setTitle("Error!")
                                                     .setColor("#ff0000")
-                                                    .setDescription("An error has occurred. Are you sure the user exists and is verified?"));
+                                                    .setDescription("An error has occurred. Are you sure the user exists and is verified? 5"));
                                                 });
 
                                         })
@@ -179,7 +179,7 @@ exports.run = (client, message, args) => {
                                             message.channel.send(new Discord.RichEmbed()
                                             .setTitle("Error!")
                                             .setColor("#ff0000")
-                                            .setDescription("An error has occurred. Are you sure the user exists and is verified?"));
+                                            .setDescription("An error has occurred. Are you sure the user exists and is verified? 4"));
                                         });
 
                                 })
@@ -187,7 +187,7 @@ exports.run = (client, message, args) => {
                                     message.channel.send(new Discord.RichEmbed()
                                     .setTitle("Error!")
                                     .setColor("#ff0000")
-                                    .setDescription("An error has occurred. Are you sure the user exists and is verified?"));
+                                    .setDescription("An error has occurred. Are you sure the user exists and is verified? 3"));
                                 });
 
                         })
@@ -195,7 +195,7 @@ exports.run = (client, message, args) => {
                             message.channel.send(new Discord.RichEmbed()
                             .setTitle("Error!")
                             .setColor("#ff0000")
-                            .setDescription("An error has occurred. Are you sure the user exists and is verified?"));
+                            .setDescription("An error has occurred. Are you sure the user exists and is verified? 2"));
                         });
 
                 } else {
@@ -203,7 +203,7 @@ exports.run = (client, message, args) => {
                     message.channel.send(new Discord.RichEmbed()
                     .setTitle("Error!")
                     .setColor("#ff0000")
-                    .setDescription("An error has occurred. Are you sure the user exists and is verified?"));
+                    .setDescription("An error has occurred. Are you sure the user exists and is verified? 1"));
   
 
                 }
