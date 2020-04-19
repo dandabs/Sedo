@@ -16,7 +16,7 @@ var he = require('he');
 
 exports.run = (client, message, args) => {
 
-    if (!message.mentions.members.first() || !args[1]) {
+    if (!message.mentions.members.first() || !args[0]) {
 
         message.channel.send(new Discord.RichEmbed()
         .setTitle("Error!")
@@ -29,7 +29,7 @@ exports.run = (client, message, args) => {
 
     const discordid = "";
 
-    if (!message.mentions.members.first()) discordid = args[1];
+    if (!message.mentions.members.first()) discordid = args[0];
     if (message.mentions.members.first()) discordid = message.mentions.members.first().id;
 
     message.channel.send(":hourglass_flowing_sand: Fetching info for <@" + discordid + ">").then((msg => {
