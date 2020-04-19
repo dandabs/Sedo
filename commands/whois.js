@@ -16,7 +16,7 @@ var he = require('he');
 
 exports.run = (client, message, args) => {
 
-    if (!message.mentions.members.first() || !args[0]) {
+    if (!message.mentions.members.first() && !args[0]) {
 
         message.channel.send(new Discord.RichEmbed()
         .setTitle("Error!")
