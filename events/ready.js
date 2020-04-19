@@ -7,6 +7,8 @@ var serviceAccount = require("../helsinkicruises-firebase-adminsdk-35i3k-deb8a8b
 
 var db = admin.firestore();
 
+const axios = require('axios');
+
 module.exports = (client) => {
 
     let ref = db.collection('instillinger').doc('bot');
@@ -27,6 +29,13 @@ module.exports = (client) => {
 
       client.guilds.get('529631776625131520').channels.get('701387399523074109').setName("Members: " + client.guilds.get('529631776625131520').members.size);
       client.guilds.get('529631776625131520').channels.get('701386093475397724').setName("Verified Members: " + client.guilds.get('529631776625131520').roles.get('535134591087018001').members.size);
+
+      axios.get("https://groups.roblox.com/v1/groups/4430859")
+      .then(response => {
+        
+        client.guilds.get('529631776625131520').channels.get('701388975494922280').setName("Group Members: " + response.data.memberCount);
+
+      }).catch(error => {});
 
   }, 10000);
 
