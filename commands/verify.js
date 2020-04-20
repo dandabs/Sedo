@@ -157,15 +157,11 @@ exports.run = (client, message, args) => {
             
                         const verifcode = v1 + v2 + v3 + v4 + v5;
 
-                        message.author.send('To verify your account, please type the following code in your ROBLOX status or description: `' + verifcode + '`, then type `!checkverify` in <#535131848821702657>.');
-                        message.author.send('Alternatively, if you prefer, you can use our classic, traditional GUI verification, by visiting <https://helsinkicruises.web.app/verify?token=' + token + '&id=' + message.author.id + '>.');
-                        message.author.send('Thank you for verifying and using our bot! We wish you a pleasant voyage.');
+                        message.channel.send('<@' + message.author.id + '> To verify your account, please type the following code in your ROBLOX status or description: `' + verifcode + '`, then type `!checkverify` in <#535131848821702657>.');
+                        message.channel.send('<@' + message.author.id + '> Alternatively, if you prefer, you can use our classic, traditional GUI verification, by visiting <https://helsinkicruises.web.app/verify?token=' + token + '&id=' + message.author.id + '>.');
+                        //message.channel.send('Thank you for verifying and using our bot! We wish you a pleasant voyage.');
 
-                        message.channel.send(':mailbox_with_mail: I\'ve sent you a DM with information on how to verify your account.')
-  .then(msg => {
-    //msg.delete(10000)
-    //message.delete();
-  });
+                        //message.channel.send(':mailbox_with_mail: I\'ve sent you a DM with information on how to verify your account.')
 
 }
 
