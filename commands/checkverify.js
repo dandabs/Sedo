@@ -120,8 +120,6 @@ exports.run = (client, message, args) => {
 
  let setRef3 = ref3.doc(reqbodyid).set({
     roblox: doc1.data().roblox,
-    country: response.data.country,
-    city: response.data.city,
     timestamp: Math.floor(new Date() / 1000)
   });
 
