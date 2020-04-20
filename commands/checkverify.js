@@ -11,10 +11,6 @@ var axios = require('axios');
 
 var admin = require('firebase-admin');
 var serviceAccount = require("./helsinkicruises-firebase-adminsdk-35i3k-deb8a8b7ab.json");
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://helsinkicruises.firebaseio.com"
-  });
 var db = admin.firestore();
 
 exports.run = (client, message, args) => {
