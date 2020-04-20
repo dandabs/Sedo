@@ -96,64 +96,64 @@ exports.run = (client, message, args) => {
                         var v4 = "";
                         var v5 = "";
             
-                        if (code.toString()[0] == '1') v1 = "🐶";
-                        if (code.toString()[0] == '2') v1 = "🐴";
-                        if (code.toString()[0] == '3') v1 = "🐸";
-                        if (code.toString()[0] == '4') v1 = "🐡";
-                        if (code.toString()[0] == '5') v1 = "🐧";
-                        if (code.toString()[0] == '6') v1 = "🐤";
-                        if (code.toString()[0] == '7') v1 = "🐳";
-                        if (code.toString()[0] == '8') v1 = "🐵";
-                        if (code.toString()[0] == '9') v1 = "🐼";
-                        if (code.toString()[0] == '0') v1 = "🐲";
+                        if (code[0] == '1') v1 = "🐶";
+                        if (code[0] == '2') v1 = "🐴";
+                        if (code[0] == '3') v1 = "🐸";
+                        if (code[0] == '4') v1 = "🐡";
+                        if (code[0] == '5') v1 = "🐧";
+                        if (code[0] == '6') v1 = "🐤";
+                        if (code[0] == '7') v1 = "🐳";
+                        if (code[0] == '8') v1 = "🐵";
+                        if (code[0] == '9') v1 = "🐼";
+                        if (code[0] == '0') v1 = "🐲";
                         
                         
-                        if (code.toString()[1] == '1') v2 = "🐶";
-                        if (code.toString()[1] == '2') v2 = "🐴";
-                        if (code.toString()[1] == '3') v2 = "🐸";
-                        if (code.toString()[1] == '4') v2 = "🐡";
-                        if (code.toString()[1] == '5') v2 = "🐧";
-                        if (code.toString()[1] == '6') v2 = "🐤";
-                        if (code.toString()[1] == '7') v2 = "🐳";
-                        if (code.toString()[1] == '8') v2 = "🐵";
-                        if (ode.toString()[1] == '9') v2 = "🐼";
-                        if (code.toString()[1] == '0') v2 = "🐲";
+                        if (code[1] == '1') v2 = "🐶";
+                        if (code[1] == '2') v2 = "🐴";
+                        if (code[1] == '3') v2 = "🐸";
+                        if (code[1] == '4') v2 = "🐡";
+                        if (code[1] == '5') v2 = "🐧";
+                        if (code[1] == '6') v2 = "🐤";
+                        if (code[1] == '7') v2 = "🐳";
+                        if (code[1] == '8') v2 = "🐵";
+                        if (code[1] == '9') v2 = "🐼";
+                        if (code[1] == '0') v2 = "🐲";
             
                         
-                        if (code.toString()[2] == '1') v3 = "🐶";
-                        if (code.toString()[2] == '2') v3 = "🐴";
-                        if (code.toString()[2] == '3') v3 = "🐸";
-                        if (code.toString()[2] == '4') v3 = "🐡";
-                        if (code.toString()[2] == '5') v3 = "🐧";
-                        if (code.toString()[2] == '6') v3 = "🐤";
-                        if (code.toString()[2] == '7') v3 = "🐳";
-                        if (code.toString()[2] == '8') v3 = "🐵";
-                        if (code.toString()[2] == '9') v3 = "🐼";
-                        if (code.toString()[2] == '0') v3 = "🐲";
+                        if (code[2] == '1') v3 = "🐶";
+                        if (code[2] == '2') v3 = "🐴";
+                        if (code[2] == '3') v3 = "🐸";
+                        if (code[2] == '4') v3 = "🐡";
+                        if (code[2] == '5') v3 = "🐧";
+                        if (code[2] == '6') v3 = "🐤";
+                        if (code[2] == '7') v3 = "🐳";
+                        if (code[2] == '8') v3 = "🐵";
+                        if (code[2] == '9') v3 = "🐼";
+                        if (code[2] == '0') v3 = "🐲";
             
                         
-                        if (code.toString()[3] == '1') v4 = "🐶";
-                        if (code.toString()[3] == '2') v4 = "🐴";
-                        if (code.toString()[3] == '3') v4 = "🐸";
-                        if (code.toString()[3] == '4') v4 = "🐡";
-                        if (code.toString()[3] == '5') v4 = "🐧";
-                        if (code.toString()[3] == '6') v4 = "🐤";
-                        if (code.toString()[3] == '7') v4 = "🐳";
-                        if (code.toString()[3] == '8') v4 = "🐵";
-                        if (code.toString()[3] == '9') v4 = "🐼";
-                        if (code.toString()[3] == '0') v4 = "🐲";
+                        if (code[3] == '1') v4 = "🐶";
+                        if (code[3] == '2') v4 = "🐴";
+                        if (code[3] == '3') v4 = "🐸";
+                        if (code[3] == '4') v4 = "🐡";
+                        if (code[3] == '5') v4 = "🐧";
+                        if (code[3] == '6') v4 = "🐤";
+                        if (code[3] == '7') v4 = "🐳";
+                        if (code[3] == '8') v4 = "🐵";
+                        if (code[3] == '9') v4 = "🐼";
+                        if (code[3] == '0') v4 = "🐲";
             
                         
-                        if (code.toString()[4] == '1') v5 = "🐶";
-                        if (code.toString()[4] == '2') v5 = "🐴";
-                        if (code.toString()[4] == '3') v5 = "🐸";
-                        if (code.toString()[4] == '4') v5 = "🐡";
-                        if (code.toString()[4] == '5') v5 = "🐧";
-                        if (code.toString()[4] == '6') v5 = "🐤";
-                        if (code.toString()[4] == '7') v5 = "🐳";
-                        if (code.toString()[4] == '8') v5 = "🐵";
-                        if (code.toString()[4] == '9') v5 = "🐼";
-                        if (code.toString()[4] == '0') v5 = "🐲";
+                        if (code[4] == '1') v5 = "🐶";
+                        if (code[4] == '2') v5 = "🐴";
+                        if (code[4] == '3') v5 = "🐸";
+                        if (code[4] == '4') v5 = "🐡";
+                        if (code[4] == '5') v5 = "🐧";
+                        if (code[4] == '6') v5 = "🐤";
+                        if (code[4] == '7') v5 = "🐳";
+                        if (code[4] == '8') v5 = "🐵";
+                        if (code[4] == '9') v5 = "🐼";
+                        if (code[4] == '0') v5 = "🐲";
             
                         const verifcode = v1 + v2 + v3 + v4 + v5;
 

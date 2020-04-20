@@ -102,10 +102,6 @@ exports.run = (client, message, args) => {
 
                     if (robloxdesc.includes(verifcode) || body.includes(verifcode)) {
 
-                        var ip = req.header('x-forwarded-for')[0] || req.connection.remoteAddress;
-
-                        res.status(200).send();
-
                         ref1.delete();
 
                         const ref3 = db.collection('users');
@@ -141,9 +137,8 @@ console.log('Error getting document', err);
 
                     } else {
 
-                        return res.status(404).send({
-                            message: 'no code'
-                         });
+
+                        message.channel.send('<@' + message.author.id + '> You have not included the code in your description or status. Please try again.');
 
                     }
 
@@ -151,9 +146,10 @@ console.log('Error getting document', err);
 
         } else {
 
-            return res.status(400).send({
-                message: 'error'
-             });
+            message.channel.send(new Discord.RichEmbed()
+            .setTitle("Error!")
+            .setColor("#ff0000")
+            .setDescription("An unknown error has occurred."));
 
         }
 
