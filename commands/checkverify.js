@@ -1,6 +1,22 @@
 const Sentry = require('@sentry/node');
 Sentry.init({ dsn: 'https://3dd1a874b960468685862e533b63c559@o376518.ingest.sentry.io/5197414' });
 
+var request = require("request");
+
+var he = require('he');
+
+var bodyParser = require('body-parser');
+
+var axios = require('axios');
+
+var admin = require('firebase-admin');
+var serviceAccount = require("./helsinkicruises-firebase-adminsdk-35i3k-deb8a8b7ab.json");
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://helsinkicruises.firebaseio.com"
+  });
+var db = admin.firestore();
+
 exports.run = (client, message, args) => {
     
     const reqbodyid = message.author.id;
