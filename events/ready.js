@@ -45,6 +45,6 @@ module.exports = (client) => {
 
     client.guilds.get('529631776625131520').channels.get('535131848821702657').send('<@&535134616604901378> Hyvää päivää! Please verify your accounts *now* using `!verify (username)`. Verification is important to us here at Helsinki Cruises, and pings will stop immediately after you verify your account. Thank you :)');
 
-}, 1800000);
+}, 3600000);
 
 }
