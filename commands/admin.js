@@ -201,9 +201,9 @@ client.guilds.get('529631776625131520').members.get(discordid).removeRole(client
 
     client.guilds.get('529631776625131520').roles.get('535134616604901378').members.forEach((member) => {
 
-      member.sendMessage("Moi <@" + member.id + ">! It looks like you haven't verified your account yet with Helsinki Cruises. We're sending out this message to kindly ask you to verify your account using the `!verify` command in the <#535131848821702657> channel **as soon as possible**. Thank you for your cooperation.");
+      member.sendMessage("Moi <@" + member.id + ">! It looks like you haven't verified your account yet with Helsinki Cruises. We're sending out this message to kindly ask you to verify your account using the `!verify` command in the <#535131848821702657> channel **as soon as possible**. We are unable to see any replies to this message, so please contact us through our Discord server if you have any questions. Thank you for your cooperation.");
 
-      console.log("Sent verification warning to:" + member.user.username + "/" + member.id);
+      console.log("Sent verification warning to: " + member.user.username + " / " + member.id);
 
     })
 
